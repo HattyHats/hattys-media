@@ -251,6 +251,18 @@
     .footer-link{padding:4px 10px;border-radius:var(--radius-pill);color:rgba(245,240,232,.55);font-size:.75rem;transition:color var(--transition),background var(--transition);}
     .footer-link:hover{color:var(--teal-light);background:rgba(255,255,255,.05);}
 
+    /* ── HOUSE ADS ── */
+    .house-ad-strip{display:flex;justify-content:center;gap:20px;padding:20px 24px 0;flex-wrap:wrap;}
+    .house-ad-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;}
+    .house-ad{display:block;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);transition:transform var(--transition),box-shadow var(--transition);position:relative;}
+    .house-ad img{width:200px;height:140px;object-fit:cover;display:block;}
+    .house-ad:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+    .house-ad-slice{box-shadow:0 0 16px rgba(255,140,0,0.35),var(--shadow-md);}
+    .house-ad-slice:hover{box-shadow:0 0 26px rgba(255,140,0,0.55),var(--shadow-lg);}
+    .house-ad-bulb{box-shadow:0 0 16px rgba(100,200,255,0.35),var(--shadow-md);}
+    .house-ad-bulb:hover{box-shadow:0 0 26px rgba(100,200,255,0.55),var(--shadow-lg);}
+    .house-ad-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-ghost);font-family:var(--font-mono);}
+
     /* ── SCROLL REVEAL ── */
     .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
@@ -400,8 +412,26 @@
     </div>
   </section>
 
-  <!-- AdSense Leaderboard -->
-  <div class="main-wrap" style="padding-top:24px;padding-bottom:0;">
+  <!-- Hatty's Picks -->
+  <div class="house-ad-strip" role="complementary" aria-label="Hatty's Picks">
+    <div class="house-ad-wrap">
+      <a class="house-ad house-ad-slice"
+         href="https://addslice.com/?crew=VFFbJ"
+         target="_blank" rel="noopener noreferrer"
+         title="Hatty's Pick – Slice App">
+        <img src="img/slice-app.gif" alt="Hatty's Pick – Try Slice App" />
+      </a>
+      <span class="house-ad-label">Hatty's Pick</span>
+    </div>
+    <div class="house-ad-wrap">
+      <a class="house-ad house-ad-bulb"
+         href="https://www.bulbapp.io?referral_code=pgx084"
+         target="_blank" rel="noopener noreferrer"
+         title="Hatty's Pick – Bulb.app">
+        <img src="img/bulb-ad.gif" alt="Hatty's Pick – Try Bulb.app" />
+      </a>
+      <span class="house-ad-label">Hatty's Pick</span>
+    </div>
   </div>
 
   <div class="explainer" role="region" aria-label="How it works">
