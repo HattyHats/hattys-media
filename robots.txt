@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hattysmedia.netlify.app/sitemap.xml

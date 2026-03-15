@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hatty's Media — Free, Public Domain & Copyright-Free Media Resources</title>
+  <meta name="description" content="Hatty's Media is your ultimate hub for discovering free, public domain, and copyright-free media: books, music, videos, images, and more — all legally free to use." />
+  <meta name="keywords" content="free media, public domain, copyright-free, free books, free music, free images, free videos, Project Gutenberg, Internet Archive, Free Music Archive, creative commons, royalty free" />
+  <meta property="og:title" content="Hatty's Media — Free & Public Domain Media Hub" />
+  <meta property="og:description" content="Discover the best free, public domain, and copyright-free media resources on the internet, curated in one beautiful place." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hattysmedia.netlify.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hattysmedia.netlify.app/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#F5F0E8;--cream-dark:#EDE7D9;--teal:#1A5C5A;--teal-mid:#237775;
+      --teal-light:#3AA49F;--teal-pale:#D0EDEC;--amber:#C8853A;--amber-light:#F0B86E;
+      --ink:#1C1A16;--ink-mid:#3D3A32;--ink-soft:#6B6558;--ink-ghost:#A8A199;
+      --white:#FFFFFF;--font-display:'Playfair Display',Georgia,serif;
+      --font-body:'DM Sans',system-ui,sans-serif;--font-mono:'DM Mono',monospace;
+      --radius-sm:6px;--radius-md:12px;--radius-lg:20px;--radius-pill:100px;
+      --shadow-sm:0 1px 4px rgba(28,26,22,0.08);--shadow-md:0 4px 20px rgba(28,26,22,0.10);
+      --shadow-lg:0 12px 40px rgba(28,26,22,0.14);
+      --transition:0.28s cubic-bezier(0.4,0,0.2,1);--nav-h:64px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;font-size:16px;}
+    body{font-family:var(--font-body);background:var(--cream);color:var(--ink);line-height:1.65;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    button{cursor:pointer;border:none;background:none;font-family:inherit;}
+    ul,ol{list-style:none;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.6;}
+    .skip-link{position:absolute;top:-999px;left:8px;background:var(--teal);color:var(--white);padding:8px 16px;border-radius:var(--radius-sm);font-size:.875rem;font-weight:600;z-index:10000;}
+    .skip-link:focus{top:8px;}
+
+    /* ── TOP BAR (Hatty's Universe sites) ── */
+    .top-bar{background:var(--ink);color:rgba(245,240,232,0.7);font-size:.72rem;padding:0 24px;height:32px;display:flex;align-items:center;justify-content:center;gap:4px;overflow:hidden;}
+    .top-bar-label{color:rgba(245,240,232,0.45);font-weight:500;margin-right:4px;white-space:nowrap;}
+    .top-bar-links{display:flex;align-items:center;gap:2px;flex-wrap:nowrap;overflow:hidden;}
+    .top-bar-link{padding:3px 8px;border-radius:var(--radius-pill);color:rgba(245,240,232,0.7);font-weight:500;transition:background var(--transition),color var(--transition);white-space:nowrap;font-size:.71rem;}
+    .top-bar-link:hover{background:rgba(255,255,255,0.1);color:var(--amber-light);}
+    .top-bar-sep{color:rgba(255,255,255,0.2);font-size:.6rem;}
+    /* top bar hamburger */
+    .top-bar-ham{display:none;align-items:center;gap:6px;background:none;border:none;color:rgba(245,240,232,0.7);font-size:.75rem;font-family:var(--font-body);cursor:pointer;padding:4px 8px;border-radius:var(--radius-sm);transition:background var(--transition);}
+    .top-bar-ham:hover{background:rgba(255,255,255,0.08);}
+    .top-bar-ham .ham-icon{display:flex;flex-direction:column;gap:3px;width:14px;}
+    .top-bar-ham .ham-icon span{display:block;height:1.5px;background:currentColor;border-radius:2px;transition:transform .25s,opacity .25s;}
+    .top-bar-ham.open .ham-icon span:nth-child(1){transform:translateY(4.5px) rotate(45deg);}
+    .top-bar-ham.open .ham-icon span:nth-child(2){opacity:0;}
+    .top-bar-ham.open .ham-icon span:nth-child(3){transform:translateY(-4.5px) rotate(-45deg);}
+    .top-bar-dropdown{display:none;position:fixed;top:32px;right:0;background:var(--ink);border-bottom:1px solid rgba(255,255,255,0.1);border-left:1px solid rgba(255,255,255,0.08);padding:12px 16px;z-index:300;min-width:200px;box-shadow:var(--shadow-lg);}
+    .top-bar-dropdown.open{display:block;}
+    .top-bar-dropdown a{display:block;padding:8px 12px;color:rgba(245,240,232,0.8);font-size:.82rem;font-weight:500;border-radius:var(--radius-sm);transition:background var(--transition),color var(--transition);margin-bottom:2px;}
+    .top-bar-dropdown a:hover{background:rgba(255,255,255,0.08);color:var(--amber-light);}
+
+    /* ── MAIN NAV ── */
+    .nav{position:sticky;top:0;z-index:200;background:rgba(245,240,232,0.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(28,26,22,0.10);height:var(--nav-h);}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;gap:8px;}
+    .nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+    .nav-logo-mark{width:36px;height:36px;background:var(--teal);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:1.15rem;color:var(--cream);flex-shrink:0;}
+    .nav-logo-text{font-family:var(--font-display);font-weight:700;font-size:1.05rem;color:var(--ink);line-height:1.1;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-spacer{flex:1;}
+    .nav-links{display:flex;align-items:center;gap:1px;}
+    .nav-link{display:flex;align-items:center;gap:5px;padding:5px 9px;border-radius:var(--radius-pill);font-size:.8rem;font-weight:500;color:var(--ink-mid);transition:background var(--transition),color var(--transition);white-space:nowrap;}
+    .nav-link .nav-icon{font-size:.9rem;line-height:1;}
+    .nav-link:hover,.nav-link.active{background:var(--teal-pale);color:var(--teal);}
+    .nav-link.active{font-weight:600;}
+
+    /* Main dropdown for "Main" */
+    .nav-dropdown-wrap{position:relative;}
+    .nav-dropdown-wrap:hover .nav-dropdown,.nav-dropdown-wrap:focus-within .nav-dropdown{display:block;}
+    .nav-dropdown-btn{display:flex;align-items:center;gap:5px;padding:5px 9px;border-radius:var(--radius-pill);font-size:.8rem;font-weight:500;color:var(--ink-mid);cursor:pointer;background:none;border:none;font-family:var(--font-body);transition:background var(--transition),color var(--transition);white-space:nowrap;}
+    .nav-dropdown-btn:hover{background:var(--teal-pale);color:var(--teal);}
+    .nav-dropdown-btn .chevron{font-size:.65rem;opacity:.6;transition:transform .2s;}
+    .nav-dropdown-wrap:hover .chevron{transform:rotate(180deg);}
+    .nav-dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--white);border:1px solid rgba(28,26,22,0.1);border-radius:var(--radius-md);padding:8px;min-width:210px;box-shadow:var(--shadow-lg);z-index:400;}
+    .nav-dropdown a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:var(--radius-sm);font-size:.83rem;font-weight:500;color:var(--ink-mid);transition:background var(--transition),color var(--transition);}
+    .nav-dropdown a:hover{background:var(--teal-pale);color:var(--teal);}
+    .nav-dropdown a .dd-icon{font-size:1rem;width:20px;text-align:center;}
+    .nav-dropdown-divider{height:1px;background:var(--cream-dark);margin:6px 0;}
+
+    .nav-share-btn{margin-left:6px;padding:7px 16px;background:var(--teal);color:var(--white);border-radius:var(--radius-pill);font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:5px;transition:background var(--transition),transform var(--transition),box-shadow var(--transition);flex-shrink:0;}
+    .nav-share-btn:hover{background:var(--teal-mid);transform:translateY(-1px);box-shadow:var(--shadow-md);}
+
+    /* Hamburger (main nav, mobile) */
+    .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;border-radius:var(--radius-sm);padding:8px;color:var(--ink);transition:background var(--transition);}
+    .hamburger:hover{background:var(--cream-dark);}
+    .hamburger span{display:block;height:2px;background:currentColor;border-radius:2px;transition:transform .3s,opacity .3s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    .mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--cream);border-bottom:1px solid rgba(28,26,22,.1);padding:16px 24px 24px;z-index:199;box-shadow:var(--shadow-lg);max-height:calc(100vh - var(--nav-h));overflow-y:auto;}
+    .mobile-menu.open{display:block;}
+    .mobile-menu .nav-link{display:flex;padding:10px 12px;font-size:.95rem;border-radius:var(--radius-md);margin-bottom:3px;}
+    .mobile-section-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-ghost);padding:10px 12px 4px;margin-top:6px;}
+    .mobile-ext-link{display:flex;align-items:center;gap:8px;padding:9px 12px;font-size:.9rem;font-weight:500;color:var(--ink-mid);border-radius:var(--radius-md);margin-bottom:3px;transition:background var(--transition);}
+    .mobile-ext-link:hover{background:var(--cream-dark);}
+    .mobile-ext-link .ext-icon{font-size:1rem;width:20px;text-align:center;}
+    .mobile-share{display:flex;margin-top:14px;padding:12px 20px;background:var(--teal);color:var(--white);border-radius:var(--radius-pill);font-size:.9rem;font-weight:600;align-items:center;gap:8px;justify-content:center;width:100%;}
+
+    /* ── SECTIONS ── */
+    .section{display:none;animation:fadeIn .4s ease;}
+    .section.active{display:block;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ── HERO ── */
+    .hero{position:relative;background:var(--teal);color:var(--white);overflow:hidden;padding:76px 24px 68px;text-align:center;}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(58,164,159,.45) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 80% 20%,rgba(26,92,90,.8) 0%,transparent 60%);}
+    .hero-decoration{position:absolute;font-family:var(--font-display);font-size:clamp(180px,30vw,360px);font-weight:900;color:rgba(255,255,255,.04);letter-spacing:-12px;top:-30px;left:50%;transform:translateX(-50%);white-space:nowrap;pointer-events:none;user-select:none;line-height:1;}
+    .hero-inner{position:relative;max-width:780px;margin:0 auto;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:6px 14px;border-radius:var(--radius-pill);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;color:var(--amber-light);}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2.2rem,6vw,4rem);font-weight:900;line-height:1.08;letter-spacing:-.02em;margin-bottom:20px;}
+    .hero-title em{font-style:italic;color:var(--teal-light);}
+    .hero-subtitle{font-size:clamp(.95rem,2vw,1.15rem);font-weight:300;color:rgba(255,255,255,.82);max-width:560px;margin:0 auto 36px;line-height:1.6;}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--white);color:var(--teal);border-radius:var(--radius-pill);font-weight:700;font-size:.92rem;transition:transform var(--transition),box-shadow var(--transition);box-shadow:0 4px 20px rgba(0,0,0,.25);}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3);}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:rgba(255,255,255,.12);color:var(--white);border:1.5px solid rgba(255,255,255,.3);border-radius:var(--radius-pill);font-weight:600;font-size:.92rem;transition:background var(--transition),transform var(--transition);}
+    .btn-secondary:hover{background:rgba(255,255,255,.2);transform:translateY(-2px);}
+    .hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;margin-top:52px;padding-top:36px;border-top:1px solid rgba(255,255,255,.15);}
+    .hero-stat{text-align:center;}
+    .hero-stat-num{font-family:var(--font-display);font-size:1.9rem;font-weight:700;line-height:1;color:var(--amber-light);}
+    .hero-stat-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.6);margin-top:4px;}
+
+    /* ── EXPLAINER ── */
+    .explainer{background:var(--ink);color:var(--cream);padding:48px 24px;}
+    .explainer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px;}
+    .explainer-item{display:flex;flex-direction:column;gap:9px;}
+    .explainer-icon{width:42px;height:42px;background:rgba(58,164,159,.18);border:1px solid rgba(58,164,159,.35);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+    .explainer-item h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--cream);}
+    .explainer-item p{font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.6;}
+
+    /* ── MAIN WRAP ── */
+    .main-wrap{max-width:1280px;margin:0 auto;padding:52px 24px 76px;}
+
+    /* ── SECTION HEADER ── */
+    .section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:32px;flex-wrap:wrap;}
+    .section-header-left{max-width:600px;}
+    .section-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);background:var(--teal-pale);padding:3px 10px;border-radius:var(--radius-pill);margin-bottom:8px;}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;color:var(--ink);}
+    .section-title em{font-style:italic;color:var(--teal);}
+    .section-desc{margin-top:8px;font-size:.92rem;color:var(--ink-soft);line-height:1.65;}
+    .count-badge{background:var(--teal-pale);color:var(--teal);border-radius:var(--radius-pill);font-size:.75rem;font-weight:600;padding:4px 12px;font-family:var(--font-mono);white-space:nowrap;align-self:center;}
+
+    /* ── RESOURCE GRID ── */
+    .resource-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;}
+
+    /* ── CARD ── */
+    .card{background:var(--white);border:1px solid rgba(28,26,22,.08);border-radius:var(--radius-lg);padding:22px;display:flex;flex-direction:column;gap:12px;transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);position:relative;overflow:hidden;}
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--card-accent,var(--teal));border-radius:var(--radius-lg) var(--radius-lg) 0 0;transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(28,26,22,.12);}
+    .card:hover::before{transform:scaleX(1);}
+    .card-header{display:flex;align-items:flex-start;gap:12px;}
+    .card-logo{width:48px;height:48px;border-radius:var(--radius-md);background:var(--card-bg,var(--teal-pale));display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+    .card-meta{flex:1;min-width:0;}
+    .card-name{font-family:var(--font-display);font-weight:700;font-size:1.04rem;line-height:1.2;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px;}
+    .tag{font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;padding:2px 7px;border-radius:var(--radius-pill);background:var(--cream-dark);color:var(--ink-soft);}
+    .tag.free{background:#D1FAE5;color:#065F46;}
+    .tag.public-domain{background:#EDE9FE;color:#5B21B6;}
+    .tag.cc{background:#FEF3C7;color:#92400E;}
+    .card-desc{font-size:.85rem;color:var(--ink-soft);line-height:1.6;flex:1;}
+    .card-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:12px;border-top:1px solid var(--cream-dark);}
+    .card-url{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-ghost);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}
+    .card-rating{display:flex;align-items:center;gap:2px;font-size:.75rem;color:var(--amber);font-weight:600;flex-shrink:0;}
+    .card-visit{display:inline-flex;align-items:center;gap:4px;padding:6px 13px;background:var(--teal);color:var(--white);border-radius:var(--radius-pill);font-size:.75rem;font-weight:600;flex-shrink:0;transition:background var(--transition),transform var(--transition);}
+    .card-visit:hover{background:var(--teal-mid);transform:scale(1.04);}
+    .card.featured{background:linear-gradient(135deg,var(--teal) 0%,#134E4C 100%);color:var(--white);border-color:transparent;}
+    .card.featured .card-name{color:var(--white);}
+    .card.featured .card-desc{color:rgba(255,255,255,.75);}
+    .card.featured .card-footer{border-color:rgba(255,255,255,.15);}
+    .card.featured .card-url{color:rgba(255,255,255,.4);}
+    .card.featured .tag{background:rgba(255,255,255,.15);color:rgba(255,255,255,.85);}
+    .card.featured .card-visit{background:var(--white);color:var(--teal);}
+    .card.featured .card-visit:hover{background:var(--cream);}
+    .card.featured .card-rating{color:var(--amber-light);}
+    .card.featured::before{background:var(--amber-light);}
+    .featured-badge{position:absolute;top:14px;right:14px;background:var(--amber);color:var(--white);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 8px;border-radius:var(--radius-pill);}
+
+    /* ── HOME ABOUT ── */
+    .home-about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin:56px 0;}
+    .home-about-text h2{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:14px;}
+    .home-about-text h2 em{font-style:italic;color:var(--teal);}
+    .home-about-text p{font-size:.92rem;color:var(--ink-soft);line-height:1.7;margin-bottom:10px;}
+    .home-about-visual{position:relative;aspect-ratio:4/3;background:var(--teal);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;}
+    .home-about-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(58,164,159,.6),transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(200,133,58,.3),transparent 60%);}
+    .visual-quote{position:relative;font-family:var(--font-display);font-size:clamp(1rem,2.2vw,1.4rem);font-style:italic;color:var(--white);line-height:1.4;}
+    .visual-attr{position:relative;margin-top:10px;font-size:.75rem;color:rgba(255,255,255,.55);font-weight:500;}
+    .visual-deco{position:absolute;top:18px;left:20px;font-size:7rem;font-family:var(--font-display);font-weight:900;color:rgba(255,255,255,.06);line-height:1;}
+
+    /* ── QUICK LINKS ── */
+    .quick-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:44px 0;}
+    .quick-link{background:var(--white);border:1.5px solid rgba(28,26,22,.08);border-radius:var(--radius-md);padding:16px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;cursor:pointer;transition:background var(--transition),border-color var(--transition),transform var(--transition),box-shadow var(--transition);}
+    .quick-link:hover{background:var(--teal-pale);border-color:var(--teal-light);transform:translateY(-3px);box-shadow:var(--shadow-md);}
+    .quick-link-icon{font-size:1.7rem;}
+    .quick-link-label{font-size:.78rem;font-weight:600;color:var(--ink-mid);line-height:1.2;}
+
+    /* ── SHARE SECTION ── */
+    .share-section{background:var(--ink);border-radius:var(--radius-lg);padding:44px;text-align:center;margin:60px 0 0;position:relative;overflow:hidden;}
+    .share-section::before{content:'❤';position:absolute;font-size:200px;color:rgba(255,255,255,.03);top:-40px;right:-20px;pointer-events:none;}
+    .share-section h2{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--cream);margin-bottom:10px;}
+    .share-section p{font-size:.92rem;color:rgba(245,240,232,.6);max-width:480px;margin:0 auto 26px;}
+    .share-buttons{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+    .share-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:var(--radius-pill);font-size:.82rem;font-weight:600;transition:transform var(--transition),opacity var(--transition);}
+    .share-btn:hover{transform:translateY(-2px);opacity:.9;}
+    .share-btn.twitter{background:#1DA1F2;color:#fff;}
+    .share-btn.facebook{background:#1877F2;color:#fff;}
+    .share-btn.linkedin{background:#0A66C2;color:#fff;}
+    .share-btn.copy{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:var(--cream);}
+    .share-btn.copy:hover{background:rgba(255,255,255,.2);}
+
+    /* ── LEGAL SECTIONS ── */
+    .legal-wrap{max-width:860px;margin:0 auto;padding:52px 24px 80px;}
+    .legal-wrap h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-.02em;margin-bottom:8px;}
+    .legal-wrap .legal-date{font-size:.8rem;color:var(--ink-ghost);font-family:var(--font-mono);margin-bottom:32px;}
+    .legal-wrap h2{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin:28px 0 10px;color:var(--ink);}
+    .legal-wrap p,.legal-wrap li{font-size:.92rem;color:var(--ink-soft);line-height:1.75;margin-bottom:10px;}
+    .legal-wrap ul{padding-left:20px;margin-bottom:12px;}
+    .legal-wrap ul li{list-style:disc;}
+    .legal-wrap a{color:var(--teal);text-decoration:underline;}
+
+    /* ── COOKIE BANNER ── */
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--cream);padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;z-index:8000;box-shadow:0 -4px 24px rgba(0,0,0,.25);transform:translateY(0);transition:transform .4s ease;}
+    .cookie-banner.hidden{transform:translateY(110%);}
+    .cookie-text{flex:1;font-size:.82rem;color:rgba(245,240,232,.8);line-height:1.5;min-width:220px;}
+    .cookie-text a{color:var(--teal-light);text-decoration:underline;}
+    .cookie-actions{display:flex;gap:8px;flex-shrink:0;}
+    .cookie-btn{padding:8px 18px;border-radius:var(--radius-pill);font-size:.8rem;font-weight:600;cursor:pointer;border:none;font-family:var(--font-body);transition:opacity .2s;}
+    .cookie-btn.accept{background:var(--teal);color:var(--white);}
+    .cookie-btn.decline{background:rgba(255,255,255,.1);color:rgba(245,240,232,.7);border:1px solid rgba(255,255,255,.15);}
+    .cookie-btn:hover{opacity:.85;}
+
+    /* ── TOAST ── */
+    .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:var(--cream);padding:11px 22px;border-radius:var(--radius-pill);font-size:.85rem;font-weight:500;box-shadow:var(--shadow-lg);z-index:9000;transition:transform .35s cubic-bezier(.34,1.56,.64,1);pointer-events:none;white-space:nowrap;}
+    .toast.show{transform:translateX(-50%) translateY(0);}
+
+    /* ── FOOTER ── */
+    footer{background:var(--ink);color:rgba(245,240,232,.6);padding:36px 24px;text-align:center;font-size:.8rem;line-height:1.8;}
+    footer strong{color:var(--cream);font-weight:600;}
+    footer a{color:var(--teal-light);}
+    footer a:hover{text-decoration:underline;}
+    .footer-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px;}
+    .footer-link{padding:4px 10px;border-radius:var(--radius-pill);color:rgba(245,240,232,.55);font-size:.75rem;transition:color var(--transition),background var(--transition);}
+    .footer-link:hover{color:var(--teal-light);background:rgba(255,255,255,.05);}
+
+    /* ── SCROLL REVEAL ── */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:.08s;}
+    .reveal-delay-2{transition-delay:.16s;}
+    .reveal-delay-3{transition-delay:.24s;}
+    .reveal-delay-4{transition-delay:.32s;}
+    .reveal-delay-5{transition-delay:.40s;}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:960px){
+      .nav-links,.nav-share-btn{display:none;}
+      .hamburger{display:flex;}
+      .home-about{grid-template-columns:1fr;}
+      .home-about-visual{display:none;}
+    }
+    @media(max-width:700px){
+      .top-bar-links,.top-bar-sep,.top-bar-label{display:none;}
+      .top-bar-ham{display:flex;}
+      .top-bar{justify-content:flex-end;}
+      .share-section{padding:28px 16px;}
+      .main-wrap{padding:36px 16px 60px;}
+      .legal-wrap{padding:36px 16px 60px;}
+    }
+    @media(max-width:480px){
+      .hero{padding:52px 16px 48px;}
+      .resource-grid{grid-template-columns:1fr;}
+      .quick-links{grid-template-columns:repeat(3,1fr);}
+    }
+  </style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ══ TOP BAR ══ -->
+<div class="top-bar" role="navigation" aria-label="Hatty's network sites">
+  <span class="top-bar-label">🌐 Hatty's Universe:</span>
+  <div class="top-bar-links" id="top-bar-links">
+    <a href="https://earnwithhatty.com/" target="_blank" rel="noopener noreferrer" class="top-bar-link">Learn With Hatty</a>
+    <span class="top-bar-sep">·</span>
+    <a href="https://hattyhats.github.io/hattys-news/" target="_blank" rel="noopener noreferrer" class="top-bar-link">Hatty's News</a>
+    <span class="top-bar-sep">·</span>
+    <a href="https://hatty-universe.netlify.app/" target="_blank" rel="noopener noreferrer" class="top-bar-link">Hatty's Universe</a>
+    <span class="top-bar-sep">·</span>
+    <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank" rel="noopener noreferrer" class="top-bar-link">Privacy Gadgets</a>
+    <span class="top-bar-sep">·</span>
+    <a href="https://earn-with-hatty-tools.netlify.app/" target="_blank" rel="noopener noreferrer" class="top-bar-link">Hatty's Tools</a>
+  </div>
+  <!-- mobile hamburger for top bar -->
+  <button class="top-bar-ham" id="top-bar-ham" onclick="toggleTopBar()" aria-label="Hatty's network sites menu" aria-expanded="false">
+    <div class="ham-icon"><span></span><span></span><span></span></div>
+    <span>Sites</span>
+  </button>
+</div>
+<div class="top-bar-dropdown" id="top-bar-dropdown" role="menu">
+  <a href="https://earnwithhatty.com/" target="_blank" rel="noopener noreferrer" role="menuitem">📚 Learn With Hatty</a>
+  <a href="https://hattyhats.github.io/hattys-news/" target="_blank" rel="noopener noreferrer" role="menuitem">📰 Hatty's News</a>
+  <a href="https://hatty-universe.netlify.app/" target="_blank" rel="noopener noreferrer" role="menuitem">🌌 Hatty's Universe</a>
+  <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank" rel="noopener noreferrer" role="menuitem">🔒 Privacy Gadgets</a>
+  <a href="https://earn-with-hatty-tools.netlify.app/" target="_blank" rel="noopener noreferrer" role="menuitem">🛠️ Hatty's Tools</a>
+</div>
+
+<!-- ══ MAIN NAV ══ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showSection('home');return false;" aria-label="Hatty's Media home">
+      <div class="nav-logo-mark" aria-hidden="true">H</div>
+      <div class="nav-logo-text">Hatty's <span>Media</span></div>
+    </a>
+    <div class="nav-spacer"></div>
+    <div class="nav-links" role="list">
+      <a role="listitem" href="#" class="nav-link active" id="nav-home" onclick="showSection('home');return false;"><span class="nav-icon">🏠</span> Home</a>
+      <a role="listitem" href="#" class="nav-link" id="nav-books" onclick="showSection('books');return false;"><span class="nav-icon">📚</span> Books</a>
+      <a role="listitem" href="#" class="nav-link" id="nav-music" onclick="showSection('music');return false;"><span class="nav-icon">🎵</span> Music</a>
+      <a role="listitem" href="#" class="nav-link" id="nav-video" onclick="showSection('video');return false;"><span class="nav-icon">🎬</span> Video</a>
+      <a role="listitem" href="#" class="nav-link" id="nav-images" onclick="showSection('images');return false;"><span class="nav-icon">🖼️</span> Images</a>
+      <a role="listitem" href="#" class="nav-link" id="nav-audio" onclick="showSection('audio');return false;"><span class="nav-icon">🔊</span> Audio</a>
+      <a role="listitem" href="#" class="nav-link" id="nav-fonts" onclick="showSection('fonts');return false;"><span class="nav-icon">Aa</span> Fonts</a>
+      <a role="listitem" href="#" class="nav-link" id="nav-3d" onclick="showSection('3d');return false;"><span class="nav-icon">🎲</span> 3D</a>
+      <!-- Main dropdown -->
+      <div class="nav-dropdown-wrap" role="listitem">
+        <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+          🌐 Main <span class="chevron">▼</span>
+        </button>
+        <div class="nav-dropdown" role="menu">
+          <a href="https://earnwithhatty.com/" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dd-icon">📚</span> Learn With Hatty</a>
+          <a href="https://hattyhats.github.io/hattys-news/" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dd-icon">📰</span> Hatty's News</a>
+          <a href="https://hatty-universe.netlify.app/" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dd-icon">🌌</span> Hatty's Universe</a>
+          <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dd-icon">🔒</span> Privacy Gadgets</a>
+          <a href="https://earn-with-hatty-tools.netlify.app/" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dd-icon">🛠️</span> Hatty's Tools</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="#" onclick="showSection('privacy');closeMobileMenu();return false;" role="menuitem"><span class="dd-icon">🔏</span> Privacy Policy</a>
+          <a href="#" onclick="showSection('terms');closeMobileMenu();return false;" role="menuitem"><span class="dd-icon">📄</span> Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <button class="nav-share-btn" onclick="triggerShare()" aria-label="Share Hatty's Media">↗ Share</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <div class="mobile-section-title">Media Categories</div>
+  <a href="#" class="nav-link" onclick="showSection('home');closeMobileMenu();return false;">🏠 Home</a>
+  <a href="#" class="nav-link" onclick="showSection('books');closeMobileMenu();return false;">📚 Books</a>
+  <a href="#" class="nav-link" onclick="showSection('music');closeMobileMenu();return false;">🎵 Music</a>
+  <a href="#" class="nav-link" onclick="showSection('video');closeMobileMenu();return false;">🎬 Video</a>
+  <a href="#" class="nav-link" onclick="showSection('images');closeMobileMenu();return false;">🖼️ Images</a>
+  <a href="#" class="nav-link" onclick="showSection('audio');closeMobileMenu();return false;">🔊 Audio &amp; SFX</a>
+  <a href="#" class="nav-link" onclick="showSection('fonts');closeMobileMenu();return false;">Aa Fonts</a>
+  <a href="#" class="nav-link" onclick="showSection('3d');closeMobileMenu();return false;">🎲 3D &amp; Models</a>
+  <div class="mobile-section-title">Hatty's Sites</div>
+  <a href="https://earnwithhatty.com/" target="_blank" rel="noopener noreferrer" class="mobile-ext-link"><span class="ext-icon">📚</span> Learn With Hatty</a>
+  <a href="https://hattyhats.github.io/hattys-news/" target="_blank" rel="noopener noreferrer" class="mobile-ext-link"><span class="ext-icon">📰</span> Hatty's News</a>
+  <a href="https://hatty-universe.netlify.app/" target="_blank" rel="noopener noreferrer" class="mobile-ext-link"><span class="ext-icon">🌌</span> Hatty's Universe</a>
+  <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank" rel="noopener noreferrer" class="mobile-ext-link"><span class="ext-icon">🔒</span> Privacy Gadgets</a>
+  <a href="https://earn-with-hatty-tools.netlify.app/" target="_blank" rel="noopener noreferrer" class="mobile-ext-link"><span class="ext-icon">🛠️</span> Hatty's Tools</a>
+  <div class="mobile-section-title">Legal</div>
+  <a href="#" class="nav-link" onclick="showSection('privacy');closeMobileMenu();return false;">🔏 Privacy Policy</a>
+  <a href="#" class="nav-link" onclick="showSection('terms');closeMobileMenu();return false;">📄 Terms of Service</a>
+  <button class="mobile-share" onclick="triggerShare();closeMobileMenu();">↗ Share Hatty's Media</button>
+</div>
+
+<main id="main">
+
+<!-- ══════════════════════ HOME ══════════════════════ -->
+<div class="section active" id="section-home">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-decoration" aria-hidden="true">FREE</div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">✦ 100% Free &amp; Legal to Use</div>
+      <h1 class="hero-title" id="hero-title">The internet's best<br/><em>free media</em>, all in one place.</h1>
+      <p class="hero-subtitle">Books, music, videos, images, fonts, 3D models — curated links to the finest public domain and copyright-free resources on the web. No paywalls. No tricks.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showSection('books')"><span>📚</span> Explore Resources</button>
+        <button class="btn-secondary" onclick="triggerShare()"><span>↗</span> Share with a Friend</button>
+      </div>
+      <div class="hero-stats" role="list">
+        <div class="hero-stat" role="listitem"><div class="hero-stat-num">70+</div><div class="hero-stat-label">Curated Sites</div></div>
+        <div class="hero-stat" role="listitem"><div class="hero-stat-num">7</div><div class="hero-stat-label">Categories</div></div>
+        <div class="hero-stat" role="listitem"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Free &amp; Legal</div></div>
+        <div class="hero-stat" role="listitem"><div class="hero-stat-num">∞</div><div class="hero-stat-label">Creative Possibilities</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AdSense Leaderboard -->
+  <div class="main-wrap" style="padding-top:24px;padding-bottom:0;">
+  </div>
+
+  <div class="explainer" role="region" aria-label="How it works">
+    <div class="explainer-inner">
+      <div class="explainer-item reveal"><div class="explainer-icon">🔍</div><h3>Curated, not algorithmic</h3><p>Every site is hand-picked and verified. No sponsored results, no filler — just quality resources.</p></div>
+      <div class="explainer-item reveal reveal-delay-1"><div class="explainer-icon">⚖️</div><h3>Legally free to use</h3><p>All links are to public domain, Creative Commons, or openly licensed content. Safe for personal and commercial projects.</p></div>
+      <div class="explainer-item reveal reveal-delay-2"><div class="explainer-icon">🌐</div><h3>Across the whole web</h3><p>We surface the best free repositories from universities, archives, libraries, and open communities worldwide.</p></div>
+      <div class="explainer-item reveal reveal-delay-3"><div class="explainer-icon">🔄</div><h3>Always up to date</h3><p>Our directory is regularly reviewed to ensure every link still works and remains a legitimate, free resource.</p></div>
+    </div>
+  </div>
+
+  <div class="main-wrap">
+    <div class="home-about">
+      <div class="home-about-text reveal">
+        <h2>Why <em>free media</em> matters — and where to find it</h2>
+        <p>The internet is full of paywalls, copyright traps, and misleading "free" offers. Hatty's Media cuts through the noise. Every resource we link to is genuinely free — no sign-up required, no hidden costs, no legal grey areas.</p>
+        <p>Whether you're a student, educator, filmmaker, podcaster, designer, or developer — this is your shortcut to the world's great free cultural commons.</p>
+        <p>Public domain works are humanity's shared heritage. We believe everyone should know how to access them.</p>
+      </div>
+      <div class="home-about-visual" aria-hidden="true">
+        <div class="visual-deco">"</div>
+        <div class="visual-quote">"Knowledge is the one thing that grows when you give it away."</div>
+        <div class="visual-attr">— The spirit of the public domain</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;margin-bottom:18px;letter-spacing:-.01em;">Browse by category</h2>
+    <div class="quick-links">
+      <button class="quick-link reveal" onclick="showSection('books')"><span class="quick-link-icon">📚</span><span class="quick-link-label">Books &amp; Texts</span></button>
+      <button class="quick-link reveal reveal-delay-1" onclick="showSection('music')"><span class="quick-link-icon">🎵</span><span class="quick-link-label">Music &amp; Songs</span></button>
+      <button class="quick-link reveal reveal-delay-2" onclick="showSection('video')"><span class="quick-link-icon">🎬</span><span class="quick-link-label">Video &amp; Film</span></button>
+      <button class="quick-link reveal reveal-delay-3" onclick="showSection('images')"><span class="quick-link-icon">🖼️</span><span class="quick-link-label">Photos &amp; Art</span></button>
+      <button class="quick-link reveal reveal-delay-4" onclick="showSection('audio')"><span class="quick-link-icon">🔊</span><span class="quick-link-label">Sound &amp; FX</span></button>
+      <button class="quick-link reveal reveal-delay-5" onclick="showSection('fonts')"><span class="quick-link-icon">Aa</span><span class="quick-link-label">Fonts &amp; Type</span></button>
+      <button class="quick-link reveal" onclick="showSection('3d')"><span class="quick-link-icon">🎲</span><span class="quick-link-label">3D &amp; Models</span></button>
+    </div>
+
+    <div class="share-section reveal" role="region" aria-label="Share Hatty's Media">
+      <h2>Love this resource? Share it. 💛</h2>
+      <p>Help fellow creators, students, and curious minds discover the world's best free media. It costs nothing to share.</p>
+      <div class="share-buttons" role="list">
+        <a role="listitem" href="https://twitter.com/intent/tweet?text=Discover%20the%20best%20free%2C%20public%20domain%20%26%20copyright-free%20media%20at%20Hatty%27s%20Media!&url=https://hattysmedia.netlify.app" target="_blank" rel="noopener noreferrer" class="share-btn twitter">𝕏 Twitter</a>
+        <a role="listitem" href="https://www.facebook.com/sharer/sharer.php?u=https://hattysmedia.netlify.app" target="_blank" rel="noopener noreferrer" class="share-btn facebook">f Facebook</a>
+        <a role="listitem" href="https://www.linkedin.com/sharing/share-offsite/?url=https://hattysmedia.netlify.app" target="_blank" rel="noopener noreferrer" class="share-btn linkedin">in LinkedIn</a>
+        <button class="share-btn copy" onclick="copyLink()">🔗 Copy Link</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ BOOKS ══════════════════════ -->
+<div class="section" id="section-books">
+  <div class="main-wrap">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-tag">📚 Category</div>
+        <h2 class="section-title">Free Books &amp; <em>Texts</em></h2>
+        <p class="section-desc">Millions of books, articles, and manuscripts — free, legal, and accessible to all. From classics to academic papers.</p>
+      </div>
+    </div>
+    <div class="resource-grid">
+
+      <div class="card featured reveal" style="--card-accent:#C8853A;--card-bg:rgba(255,255,255,0.15);">
+        <span class="featured-badge">⭐ Top Pick</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:rgba(255,255,255,0.15);">📖</div>
+          <div class="card-meta">
+            <div class="card-name">Project Gutenberg</div>
+            <div class="card-tags"><span class="tag public-domain">Public Domain</span><span class="tag ">70,000+ books</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Over 70,000 free ebooks in the public domain — from Shakespeare to Tolstoy — in multiple formats including EPUB, Kindle, and HTML. The original free ebook library.</p>
+        <div class="card-footer">
+          <span class="card-url">gutenberg.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://www.gutenberg.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#5B21B6;--card-bg:#EDE9FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">🔬</div>
+          <div class="card-meta">
+            <div class="card-name">Standard Ebooks</div>
+            <div class="card-tags"><span class="tag public-domain">Polished</span><span class="tag ">Open Source</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Beautifully typeset, professionally formatted public-domain ebooks with better typography and metadata than any other source. A gem for design-conscious readers.</p>
+        <div class="card-footer">
+          <span class="card-url">standardebooks.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://standardebooks.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#1A5C5A;--card-bg:#D0EDEC;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D0EDEC;">🏛️</div>
+          <div class="card-meta">
+            <div class="card-name">Internet Archive Books</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Borrow</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Borrow or download millions of scanned books, including out-of-print texts and the full Open Library catalogue. Includes borrowable editions for newer works.</p>
+        <div class="card-footer">
+          <span class="card-url">archive.org</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://archive.org/details/books" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#047857;--card-bg:#D1FAE5;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">🎓</div>
+          <div class="card-meta">
+            <div class="card-name">Open Library</div>
+            <div class="card-tags"><span class="tag free">Free Borrow</span><span class="tag ">3M+ books</span></div>
+          </div>
+        </div>
+        <p class="card-desc">One web page for every book ever published. Borrow digital copies and read millions of free public domain works. A project of the Internet Archive.</p>
+        <div class="card-footer">
+          <span class="card-url">openlibrary.org</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://openlibrary.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#C0392B;--card-bg:#FEE2E2;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEE2E2;">📰</div>
+          <div class="card-meta">
+            <div class="card-name">Wikisource</div>
+            <div class="card-tags"><span class="tag ">Wiki</span><span class="tag public-domain">Public Domain</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A Wikimedia project hosting free content texts — historical documents, speeches, laws, poetry, and classic literature, all collaboratively verified and formatted.</p>
+        <div class="card-footer">
+          <span class="card-url">en.wikisource.org</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://en.wikisource.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0A66C2;--card-bg:#DBEAFE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#DBEAFE;">📋</div>
+          <div class="card-meta">
+            <div class="card-name">ManyBooks</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Multi-format</span></div>
+          </div>
+        </div>
+        <p class="card-desc">33,000+ free ebooks in multiple formats including PDF, ePub, and Kindle. Great search and genre filtering for exploring public domain literature.</p>
+        <div class="card-footer">
+          <span class="card-url">manybooks.net</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://manybooks.net" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#92400E;--card-bg:#FEF3C7;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🔭</div>
+          <div class="card-meta">
+            <div class="card-name">Perseus Digital Library</div>
+            <div class="card-tags"><span class="tag ">Classics</span><span class="tag ">Academic</span></div>
+          </div>
+        </div>
+        <p class="card-desc">The world's best resource for classical texts. Greek and Latin literature in original languages with translations, from Homer to Cicero and beyond.</p>
+        <div class="card-footer">
+          <span class="card-url">perseus.tufts.edu</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://www.perseus.tufts.edu" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#6B21A8;--card-bg:#F3E8FF;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#F3E8FF;">🧬</div>
+          <div class="card-meta">
+            <div class="card-name">arXiv.org</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Academic</span><span class="tag ">2M+ papers</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Over 2 million scholarly papers in physics, maths, CS, biology, and more — free and open access, directly from researchers. Essential for academics.</p>
+        <div class="card-footer">
+          <span class="card-url">arxiv.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://arxiv.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#B45309;--card-bg:#FEF3C7;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🎤</div>
+          <div class="card-meta">
+            <div class="card-name">Librivox</div>
+            <div class="card-tags"><span class="tag public-domain">Audiobooks</span><span class="tag ">MP3</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Free public domain audiobooks read by volunteers worldwide. Thousands of complete audiobooks — listen online or download for free in MP3 format.</p>
+        <div class="card-footer">
+          <span class="card-url">librivox.org</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://librivox.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0369A1;--card-bg:#E0F2FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#E0F2FE;">📑</div>
+          <div class="card-meta">
+            <div class="card-name">Feedbooks</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">eReader Friendly</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Thousands of original and public domain books. The public domain section is excellent, well-organised by genre, and works beautifully on e-readers.</p>
+        <div class="card-footer">
+          <span class="card-url">feedbooks.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.feedbooks.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#065F46;--card-bg:#D1FAE5;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">🌍</div>
+          <div class="card-meta">
+            <div class="card-name">Global Grey Ebooks</div>
+            <div class="card-tags"><span class="tag public-domain">Public Domain</span><span class="tag ">Illustrated</span></div>
+          </div>
+        </div>
+        <p class="card-desc">High-quality, elegantly formatted public domain ebooks with original illustrations. Beautiful PDF and ePub versions that look stunning on any device.</p>
+        <div class="card-footer">
+          <span class="card-url">globalgreyebooks.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.globalgreyebooks.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#7C3AED;--card-bg:#EDE9FE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">✡️</div>
+          <div class="card-meta">
+            <div class="card-name">Sacred Texts</div>
+            <div class="card-tags"><span class="tag public-domain">Public Domain</span><span class="tag ">Religion</span><span class="tag ">Myth</span></div>
+          </div>
+        </div>
+        <p class="card-desc">The largest freely available archive of religious, spiritual, and mythological texts on the internet. Covers virtually every world religion and tradition.</p>
+        <div class="card-footer">
+          <span class="card-url">sacred-texts.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.sacred-texts.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════ MUSIC ══════════════════════ -->
+<div class="section" id="section-music">
+  <div class="main-wrap">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-tag">🎵 Category</div>
+        <h2 class="section-title">Free Music &amp; <em>Songs</em></h2>
+        <p class="section-desc">Royalty-free and Creative Commons music for streaming, downloading, and using in your projects — legally.</p>
+      </div>
+    </div>
+    <div class="resource-grid">
+
+      <div class="card featured reveal" style="--card-accent:#C8853A;--card-bg:rgba(255,255,255,0.15);">
+        <span class="featured-badge">⭐ Top Pick</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:rgba(255,255,255,0.15);">🎸</div>
+          <div class="card-meta">
+            <div class="card-name">Free Music Archive</div>
+            <div class="card-tags"><span class="tag cc">CC Licensed</span><span class="tag ">All Genres</span></div>
+          </div>
+        </div>
+        <p class="card-desc">An interactive library of high-quality, legal audio downloads from artists who have chosen to share under Creative Commons. Eclectic, vast, and constantly updated.</p>
+        <div class="card-footer">
+          <span class="card-url">freemusicarchive.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://freemusicarchive.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#DB2777;--card-bg:#FCE7F3;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FCE7F3;">🎹</div>
+          <div class="card-meta">
+            <div class="card-name">Musopen</div>
+            <div class="card-tags"><span class="tag public-domain">Classical</span><span class="tag ">Sheet Music</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Free sheet music, recordings, and textbooks for classical music. Musopen commissions new recordings specifically for public domain release — truly unique resource.</p>
+        <div class="card-footer">
+          <span class="card-url">musopen.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://musopen.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#1A5C5A;--card-bg:#D0EDEC;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D0EDEC;">🎧</div>
+          <div class="card-meta">
+            <div class="card-name">ccMixter</div>
+            <div class="card-tags"><span class="tag cc">CC</span><span class="tag ">Remix</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A community music remixing site where musicians share samples, a cappellas, and full tracks under Creative Commons licenses — brilliant for creative collaboration.</p>
+        <div class="card-footer">
+          <span class="card-url">ccmixter.org</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://ccmixter.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0369A1;--card-bg:#E0F2FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#E0F2FE;">🔊</div>
+          <div class="card-meta">
+            <div class="card-name">Incompetech</div>
+            <div class="card-tags"><span class="tag cc">Royalty-Free</span><span class="tag ">CC 4.0</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Kevin MacLeod's legendary royalty-free music library. Hundreds of tracks covering every genre — the soundtrack of countless films, YouTube videos, and games.</p>
+        <div class="card-footer">
+          <span class="card-url">incompetech.com</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://incompetech.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#B45309;--card-bg:#FEF3C7;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🎷</div>
+          <div class="card-meta">
+            <div class="card-name">Jamendo Music</div>
+            <div class="card-tags"><span class="tag cc">CC Licensed</span><span class="tag ">600k tracks</span></div>
+          </div>
+        </div>
+        <p class="card-desc">600,000+ tracks from independent artists, all under Creative Commons. Free for personal use; affordable pro licensing for commercial projects.</p>
+        <div class="card-footer">
+          <span class="card-url">jamendo.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.jamendo.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#7C3AED;--card-bg:#EDE9FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">🎻</div>
+          <div class="card-meta">
+            <div class="card-name">Internet Archive Audio</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Live Concerts</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Thousands of live concerts, old-time radio broadcasts, and spoken word recordings. The Live Music Archive alone has hundreds of thousands of legally shared shows.</p>
+        <div class="card-footer">
+          <span class="card-url">archive.org</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://archive.org/details/audio" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#065F46;--card-bg:#D1FAE5;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">🥁</div>
+          <div class="card-meta">
+            <div class="card-name">YouTube Audio Library</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">No Attribution</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Google's own library of free music and sound effects. Filterable by genre, mood, and attribution. Essential for video creators using YouTube Studio.</p>
+        <div class="card-footer">
+          <span class="card-url">studio.youtube.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://studio.youtube.com/channel/audio" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0D9488;--card-bg:#CCFBF1;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#CCFBF1;">🎼</div>
+          <div class="card-meta">
+            <div class="card-name">dig.ccMixter</div>
+            <div class="card-tags"><span class="tag cc">CC</span><span class="tag ">Curated</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A curated selection of the best Creative Commons music from ccMixter — hand-picked tracks from top contributors for easy discovery.</p>
+        <div class="card-footer">
+          <span class="card-url">dig.ccmixter.org</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://dig.ccmixter.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#6B21A8;--card-bg:#F3E8FF;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#F3E8FF;">🎺</div>
+          <div class="card-meta">
+            <div class="card-name">Opsound</div>
+            <div class="card-tags"><span class="tag cc">Copyleft</span><span class="tag ">Experimental</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A pool of sounds contributed to the public under a copyleft license, from ambient and experimental to electronic and jazz.</p>
+        <div class="card-footer">
+          <span class="card-url">opsound.org</span>
+          <div class="card-rating" aria-label="Rating: 3.5 stars">★★★½☆</div>
+          <a href="https://opsound.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#C8853A;--card-bg:#FEF3C7;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🪗</div>
+          <div class="card-meta">
+            <div class="card-name">Audionautix</div>
+            <div class="card-tags"><span class="tag cc">CC 4.0</span><span class="tag ">Background Music</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Original music by Jason Shaw, all available for free under Creative Commons Attribution 4.0. Excellent for background music in videos and podcasts.</p>
+        <div class="card-footer">
+          <span class="card-url">audionautix.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://audionautix.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#1D4ED8;--card-bg:#DBEAFE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#DBEAFE;">🎻</div>
+          <div class="card-meta">
+            <div class="card-name">Bensound</div>
+            <div class="card-tags"><span class="tag ">Royalty-Free</span><span class="tag cc">Attribution</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A large library of royalty-free music — from acoustic to cinematic. Free with attribution, with affordable premium plans for commercial use.</p>
+        <div class="card-footer">
+          <span class="card-url">bensound.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.bensound.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#5B21B6;--card-bg:#EDE9FE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">🪐</div>
+          <div class="card-meta">
+            <div class="card-name">Purple Planet Music</div>
+            <div class="card-tags"><span class="tag ">Royalty-Free</span><span class="tag ">Cinematic</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Royalty-free music produced by professional composers, available for free personal and educational use. Great cinematic and ambient selections.</p>
+        <div class="card-footer">
+          <span class="card-url">purple-planet.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.purple-planet.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════ VIDEO ══════════════════════ -->
+<div class="section" id="section-video">
+  <div class="main-wrap">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-tag">🎬 Category</div>
+        <h2 class="section-title">Free Video &amp; <em>Film</em></h2>
+        <p class="section-desc">Public domain films, documentaries, educational videos, and stock footage — free to watch, share, and remix.</p>
+      </div>
+    </div>
+    <div class="resource-grid">
+
+      <div class="card featured reveal" style="--card-accent:#C8853A;--card-bg:rgba(255,255,255,0.15);">
+        <span class="featured-badge">⭐ Top Pick</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:rgba(255,255,255,0.15);">📼</div>
+          <div class="card-meta">
+            <div class="card-name">Internet Archive Video</div>
+            <div class="card-tags"><span class="tag ">Movies</span><span class="tag ">Docs</span><span class="tag ">TV</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Millions of free movies, TV shows, newsreels, and documentaries. The largest free video archive on the internet, including classic Hollywood films now in the public domain.</p>
+        <div class="card-footer">
+          <span class="card-url">archive.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://archive.org/details/movies" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#7C3AED;--card-bg:#EDE9FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">🎞️</div>
+          <div class="card-meta">
+            <div class="card-name">Pexels Videos</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">No Attribution</span><span class="tag ">4K</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Stunning free stock videos contributed by talented creators. Free for commercial and personal use, no attribution required. Huge library of HD and 4K clips.</p>
+        <div class="card-footer">
+          <span class="card-url">pexels.com</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://www.pexels.com/videos" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0D9488;--card-bg:#CCFBF1;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#CCFBF1;">📺</div>
+          <div class="card-meta">
+            <div class="card-name">Mixkit</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Stock</span><span class="tag ">Templates</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Gorgeous free stock video clips, templates, and music tracks. No attribution required for most content. Perfect for YouTube, social media, and presentations.</p>
+        <div class="card-footer">
+          <span class="card-url">mixkit.co</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://mixkit.co" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#1D4ED8;--card-bg:#DBEAFE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#DBEAFE;">🎬</div>
+          <div class="card-meta">
+            <div class="card-name">Videvo</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Motion Graphics</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Free stock video clips, motion graphics, and music. Thousands of free clips with clear licensing, from CC0 to attribution-required.</p>
+        <div class="card-footer">
+          <span class="card-url">videvo.net</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.videvo.net" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#047857;--card-bg:#D1FAE5;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">🎥</div>
+          <div class="card-meta">
+            <div class="card-name">Pixabay Videos</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">No Attribution</span></div>
+          </div>
+        </div>
+        <p class="card-desc">4.6 million+ free videos, images, and music. All under the Pixabay License — free for commercial use, no attribution required.</p>
+        <div class="card-footer">
+          <span class="card-url">pixabay.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://pixabay.com/videos" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#DC2626;--card-bg:#FEE2E2;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEE2E2;">🎭</div>
+          <div class="card-meta">
+            <div class="card-name">Public Domain Movies</div>
+            <div class="card-tags"><span class="tag public-domain">Public Domain</span><span class="tag ">Classic Films</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A dedicated catalogue of classic films in the public domain, including horror, noir, westerns, and serials from the golden age of Hollywood.</p>
+        <div class="card-footer">
+          <span class="card-url">publicdomainmovies.net</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://publicdomainmovies.net" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#B45309;--card-bg:#FEF3C7;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🌍</div>
+          <div class="card-meta">
+            <div class="card-name">NASA Video Gallery</div>
+            <div class="card-tags"><span class="tag public-domain">Public Domain</span><span class="tag ">Space</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Spectacular footage of space, Earth from orbit, launches, and missions — all in the public domain. The universe, free to explore and use.</p>
+        <div class="card-footer">
+          <span class="card-url">images.nasa.gov</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://images.nasa.gov" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0369A1;--card-bg:#E0F2FE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#E0F2FE;">🌄</div>
+          <div class="card-meta">
+            <div class="card-name">Dareful</div>
+            <div class="card-tags"><span class="tag public-domain">CC0</span><span class="tag ">4K</span><span class="tag ">Nature</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Free 4K and HD stock footage with a focus on nature, time-lapse, and aerial shots. All videos under Creative Commons Zero — no attribution needed.</p>
+        <div class="card-footer">
+          <span class="card-url">dareful.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.dareful.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#065F46;--card-bg:#D1FAE5;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">🖥️</div>
+          <div class="card-meta">
+            <div class="card-name">CoverVid</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Loops</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Background video loops, perfect as website header backgrounds or digital signage. Free to download and use in personal and commercial projects.</p>
+        <div class="card-footer">
+          <span class="card-url">covervid.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.covervid.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════ IMAGES ══════════════════════ -->
+<div class="section" id="section-images">
+  <div class="main-wrap">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-tag">🖼️ Category</div>
+        <h2 class="section-title">Free Photos &amp; <em>Art</em></h2>
+        <p class="section-desc">Stunning photographs, historical images, fine art, and illustrations — free for personal and commercial use.</p>
+      </div>
+    </div>
+    <div class="resource-grid">
+
+      <div class="card featured reveal" style="--card-accent:#C8853A;--card-bg:rgba(255,255,255,0.15);">
+        <span class="featured-badge">⭐ Top Pick</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:rgba(255,255,255,0.15);">📷</div>
+          <div class="card-meta">
+            <div class="card-name">Unsplash</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">No Attribution</span><span class="tag ">3M+ photos</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Over 3 million stunning free high-resolution photographs. Free for any use under the Unsplash License. The internet's most popular free photography resource.</p>
+        <div class="card-footer">
+          <span class="card-url">unsplash.com</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#1A5C5A;--card-bg:#D0EDEC;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D0EDEC;">🌿</div>
+          <div class="card-meta">
+            <div class="card-name">Pexels</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Commercial OK</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Thousands of free stock photos and videos shared by talented creators. Free for personal and commercial use, no attribution required — a designer's staple.</p>
+        <div class="card-footer">
+          <span class="card-url">pexels.com</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#047857;--card-bg:#D1FAE5;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">🌱</div>
+          <div class="card-meta">
+            <div class="card-name">Pixabay</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Vectors</span><span class="tag ">4.6M+</span></div>
+          </div>
+        </div>
+        <p class="card-desc">4.6 million free images, vectors, and videos. All under the Pixabay License — free for commercial use, no attribution. Also includes illustrations and icons.</p>
+        <div class="card-footer">
+          <span class="card-url">pixabay.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://pixabay.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#5B21B6;--card-bg:#EDE9FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">🎨</div>
+          <div class="card-meta">
+            <div class="card-name">Wikimedia Commons</div>
+            <div class="card-tags"><span class="tag public-domain">Public Domain</span><span class="tag ">Art & History</span></div>
+          </div>
+        </div>
+        <p class="card-desc">89 million freely usable images, diagrams, maps, artworks, and photographs. High-res scans of museum masterpieces, historical photos, and scientific illustrations.</p>
+        <div class="card-footer">
+          <span class="card-url">commons.wikimedia.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#B45309;--card-bg:#FEF3C7;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🏛️</div>
+          <div class="card-meta">
+            <div class="card-name">The Met Open Access</div>
+            <div class="card-tags"><span class="tag public-domain">CC0</span><span class="tag ">406k images</span></div>
+          </div>
+        </div>
+        <p class="card-desc">406,000+ high-resolution images from The Metropolitan Museum of Art, released under Creative Commons Zero. The world's finest art, completely free.</p>
+        <div class="card-footer">
+          <span class="card-url">metmuseum.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://www.metmuseum.org/art/collection" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0369A1;--card-bg:#E0F2FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#E0F2FE;">📸</div>
+          <div class="card-meta">
+            <div class="card-name">Flickr Commons</div>
+            <div class="card-tags"><span class="tag ">Historic</span><span class="tag public-domain">No Rights Reserved</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Millions of rare and historic photos from the world's great libraries, archives, and museums — all with no known copyright restrictions.</p>
+        <div class="card-footer">
+          <span class="card-url">flickr.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.flickr.com/commons" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#9D174D;--card-bg:#FCE7F3;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FCE7F3;">🖌️</div>
+          <div class="card-meta">
+            <div class="card-name">Rawpixel Public Domain</div>
+            <div class="card-tags"><span class="tag public-domain">CC0</span><span class="tag ">Vintage Art</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Curated collection of vintage illustrations, botanical prints, and public domain artworks — beautifully restored and perfect for design projects.</p>
+        <div class="card-footer">
+          <span class="card-url">rawpixel.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.rawpixel.com/free-images" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#DC2626;--card-bg:#FEE2E2;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEE2E2;">🦅</div>
+          <div class="card-meta">
+            <div class="card-name">Smithsonian Open Access</div>
+            <div class="card-tags"><span class="tag public-domain">CC0</span><span class="tag ">4.5M images</span></div>
+          </div>
+        </div>
+        <p class="card-desc">4.5 million images from the Smithsonian Institution — natural history, Americana, art, science — all CC0. An extraordinary treasure for researchers and designers.</p>
+        <div class="card-footer">
+          <span class="card-url">si.edu</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://www.si.edu/openaccess" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#7C3AED;--card-bg:#EDE9FE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">📚</div>
+          <div class="card-meta">
+            <div class="card-name">New York Public Library</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Historic</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Over 900,000 digitized images from the NYPL's collections — maps, photographs, prints, manuscripts, and more — all freely available to download.</p>
+        <div class="card-footer">
+          <span class="card-url">nypl.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://digitalcollections.nypl.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0D9488;--card-bg:#CCFBF1;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#CCFBF1;">🏰</div>
+          <div class="card-meta">
+            <div class="card-name">Europeana</div>
+            <div class="card-tags"><span class="tag cc">CC Licensed</span><span class="tag ">Cultural Heritage</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Access millions of digitised items from European museums, archives, and libraries. A treasure trove of European cultural heritage — art, maps, manuscripts, and photos.</p>
+        <div class="card-footer">
+          <span class="card-url">europeana.eu</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.europeana.eu" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#065F46;--card-bg:#D1FAE5;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">🌅</div>
+          <div class="card-meta">
+            <div class="card-name">StockSnap.io</div>
+            <div class="card-tags"><span class="tag public-domain">CC0</span><span class="tag ">Weekly updates</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Hundreds of high-resolution photos added weekly, all released under CC0 — no attribution required, free for any use including commercial projects.</p>
+        <div class="card-footer">
+          <span class="card-url">stocksnap.io</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://stocksnap.io" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#1D4ED8;--card-bg:#DBEAFE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#DBEAFE;">🛍️</div>
+          <div class="card-meta">
+            <div class="card-name">Burst by Shopify</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Business</span><span class="tag ">Commercial</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Free stock photos for entrepreneurs and businesses. Professionally photographed, organised by business niche, free for commercial use.</p>
+        <div class="card-footer">
+          <span class="card-url">shopify.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.shopify.com/stock-photos" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#6B21A8;--card-bg:#F3E8FF;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#F3E8FF;">📸</div>
+          <div class="card-meta">
+            <div class="card-name">Reshot</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Curated</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Curated free stock photos and icons. Non-generic, unique imagery hand-picked from a community of photographers. Free for commercial use.</p>
+        <div class="card-footer">
+          <span class="card-url">reshot.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.reshot.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#B45309;--card-bg:#FEF3C7;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🌊</div>
+          <div class="card-meta">
+            <div class="card-name">Life of Pix</div>
+            <div class="card-tags"><span class="tag public-domain">Public Domain</span><span class="tag ">No Restrictions</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Free high-resolution photos gifted to the public domain by LEEROY creative agency. All photos are completely free with no copyright restrictions.</p>
+        <div class="card-footer">
+          <span class="card-url">lifeofpix.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.lifeofpix.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════ AUDIO ══════════════════════ -->
+<div class="section" id="section-audio">
+  <div class="main-wrap">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-tag">🔊 Category</div>
+        <h2 class="section-title">Free Sound Effects &amp; <em>Audio</em></h2>
+        <p class="section-desc">Sound effects, ambient recordings, voice clips, and audio samples — free for use in films, games, and podcasts.</p>
+      </div>
+    </div>
+    <div class="resource-grid">
+
+      <div class="card featured reveal" style="--card-accent:#C8853A;--card-bg:rgba(255,255,255,0.15);">
+        <span class="featured-badge">⭐ Top Pick</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:rgba(255,255,255,0.15);">🎙️</div>
+          <div class="card-meta">
+            <div class="card-name">Freesound</div>
+            <div class="card-tags"><span class="tag ">SFX</span><span class="tag cc">CC Licensed</span><span class="tag ">500k+ sounds</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Over 500,000 Creative Commons licensed sound effects, ambient recordings, and audio samples uploaded by a global community of recordists. The definitive SFX archive.</p>
+        <div class="card-footer">
+          <span class="card-url">freesound.org</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://freesound.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0369A1;--card-bg:#E0F2FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#E0F2FE;">📻</div>
+          <div class="card-meta">
+            <div class="card-name">Zapsplat</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">90k+ SFX</span></div>
+          </div>
+        </div>
+        <p class="card-desc">90,000+ free sound effects and music tracks with excellent search and categorisation. Consistently professional quality, free with account registration.</p>
+        <div class="card-footer">
+          <span class="card-url">zapsplat.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.zapsplat.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#DC2626;--card-bg:#FEE2E2;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEE2E2;">🇬🇧</div>
+          <div class="card-meta">
+            <div class="card-name">BBC Sound Effects</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">16,000 SFX</span></div>
+          </div>
+        </div>
+        <p class="card-desc">16,000 BBC sound effects for personal, educational, or research use. Legendary quality from the BBC archives — from birdsong to Big Ben to steam trains.</p>
+        <div class="card-footer">
+          <span class="card-url">bbcrewind.co.uk</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://sound-effects.bbcrewind.co.uk" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#7C3AED;--card-bg:#EDE9FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">🌊</div>
+          <div class="card-meta">
+            <div class="card-name">SoundBible</div>
+            <div class="card-tags"><span class="tag public-domain">Public Domain</span><span class="tag ">WAV/MP3</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Free sound clips in WAV and MP3 format, clearly marked with licensing info per clip. Excellent for game development, film projects, and presentations.</p>
+        <div class="card-footer">
+          <span class="card-url">soundbible.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://soundbible.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#B45309;--card-bg:#FEF3C7;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🎤</div>
+          <div class="card-meta">
+            <div class="card-name">LibriVox</div>
+            <div class="card-tags"><span class="tag public-domain">Audiobooks</span><span class="tag free">Free</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Free public domain audiobooks read by volunteers from around the world. Thousands of complete audiobooks in MP3 format — a wonderful community project.</p>
+        <div class="card-footer">
+          <span class="card-url">librivox.org</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://librivox.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0D9488;--card-bg:#CCFBF1;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#CCFBF1;">🎮</div>
+          <div class="card-meta">
+            <div class="card-name">OpenGameArt Audio</div>
+            <div class="card-tags"><span class="tag cc">CC Licensed</span><span class="tag ">Game Audio</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A vast library of free game audio assets — sound effects, music loops, ambient tracks — all contributed by game developers under open licenses.</p>
+        <div class="card-footer">
+          <span class="card-url">opengameart.org</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://opengameart.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#1D4ED8;--card-bg:#DBEAFE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#DBEAFE;">🎵</div>
+          <div class="card-meta">
+            <div class="card-name">SoundJay</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Commercial OK</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Hundreds of free sound effects for personal and commercial use. Well-organised by category including nature, household, transportation, and sports.</p>
+        <div class="card-footer">
+          <span class="card-url">soundjay.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.soundjay.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#065F46;--card-bg:#D1FAE5;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">📡</div>
+          <div class="card-meta">
+            <div class="card-name">Soundsnap</div>
+            <div class="card-tags"><span class="tag ">Pro Quality</span><span class="tag free">Free Tier</span></div>
+          </div>
+        </div>
+        <p class="card-desc">High-quality professional sound effects library with a free tier. Used by Hollywood sound designers and game developers. 250+ free sounds per month.</p>
+        <div class="card-footer">
+          <span class="card-url">soundsnap.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.soundsnap.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#9D174D;--card-bg:#FCE7F3;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#FCE7F3;">🔁</div>
+          <div class="card-meta">
+            <div class="card-name">Looperman</div>
+            <div class="card-tags"><span class="tag ">Loops</span><span class="tag cc">CC</span><span class="tag ">Production</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A community-driven site with free audio loops, acapellas, and samples for music production. All free for personal and commercial use with attribution.</p>
+        <div class="card-footer">
+          <span class="card-url">looperman.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.looperman.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════ FONTS ══════════════════════ -->
+<div class="section" id="section-fonts">
+  <div class="main-wrap">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-tag">Aa Category</div>
+        <h2 class="section-title">Free Fonts &amp; <em>Typography</em></h2>
+        <p class="section-desc">Open-source and freely licensed typefaces for web, print, and design — use without restrictions.</p>
+      </div>
+    </div>
+    <div class="resource-grid">
+
+      <div class="card featured reveal" style="--card-accent:#C8853A;--card-bg:rgba(255,255,255,0.15);">
+        <span class="featured-badge">⭐ Top Pick</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:rgba(255,255,255,0.15);">🔤</div>
+          <div class="card-meta">
+            <div class="card-name">Google Fonts</div>
+            <div class="card-tags"><span class="tag ">1,500+ Fonts</span><span class="tag ">Open Source</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Over 1,500 open-source font families, ready for web and apps. The backbone of modern web typography — embed via CSS or download for desktop design.</p>
+        <div class="card-footer">
+          <span class="card-url">fonts.google.com</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#1A5C5A;--card-bg:#D0EDEC;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D0EDEC;">✍️</div>
+          <div class="card-meta">
+            <div class="card-name">Font Squirrel</div>
+            <div class="card-tags"><span class="tag free">Commercial Free</span><span class="tag ">Curated</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Hand-curated free fonts licensed for commercial use. Rigorous quality control — every font is vetted. Also includes a powerful font identifier tool.</p>
+        <div class="card-footer">
+          <span class="card-url">fontsquirrel.com</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://www.fontsquirrel.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#5B21B6;--card-bg:#EDE9FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">🅰️</div>
+          <div class="card-meta">
+            <div class="card-name">The League of Moveable Type</div>
+            <div class="card-tags"><span class="tag ">Open Source</span><span class="tag ">Foundry</span></div>
+          </div>
+        </div>
+        <p class="card-desc">The first open-source type foundry. A small, beautifully designed collection of high-quality, truly open-source typefaces — quality over quantity.</p>
+        <div class="card-footer">
+          <span class="card-url">theleagueofmoveabletype.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.theleagueofmoveabletype.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#DC2626;--card-bg:#FEE2E2;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEE2E2;">📝</div>
+          <div class="card-meta">
+            <div class="card-name">Open Font Library</div>
+            <div class="card-tags"><span class="tag cc">Open License</span><span class="tag ">Community</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A community archive of freely licensed fonts with clear licensing information. Great for finding unique, lesser-known typefaces with personality.</p>
+        <div class="card-footer">
+          <span class="card-url">fontlibrary.org</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://fontlibrary.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0369A1;--card-bg:#E0F2FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#E0F2FE;">🐇</div>
+          <div class="card-meta">
+            <div class="card-name">Bunny Fonts</div>
+            <div class="card-tags"><span class="tag ">Privacy-First</span><span class="tag ">GDPR</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A privacy-first drop-in replacement for Google Fonts — same fonts, GDPR compliant, no tracking. Essential for privacy-respecting websites.</p>
+        <div class="card-footer">
+          <span class="card-url">fonts.bunny.net</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://fonts.bunny.net" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#047857;--card-bg:#D1FAE5;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">✒️</div>
+          <div class="card-meta">
+            <div class="card-name">DaFont</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">100k+ Fonts</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Thousands of free fonts organised by category. Many are free for personal use; commercial licensing info is clearly indicated per font family.</p>
+        <div class="card-footer">
+          <span class="card-url">dafont.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.dafont.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#7C3AED;--card-bg:#EDE9FE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">🖋️</div>
+          <div class="card-meta">
+            <div class="card-name">1001 Fonts</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">1,000+ Families</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A huge directory of free fonts — from elegant serifs to quirky display faces. Filter by license including 100% free and public domain options.</p>
+        <div class="card-footer">
+          <span class="card-url">1001fonts.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://www.1001fonts.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#B45309;--card-bg:#FEF3C7;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🔣</div>
+          <div class="card-meta">
+            <div class="card-name">Abstract Fonts</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">13k+ fonts</span></div>
+          </div>
+        </div>
+        <p class="card-desc">13,000+ free fonts available for immediate download. Includes public domain and freeware options. Good for finding unusual decorative and display fonts.</p>
+        <div class="card-footer">
+          <span class="card-url">abstractfonts.com</span>
+          <div class="card-rating" aria-label="Rating: 3.5 stars">★★★½☆</div>
+          <a href="https://www.abstractfonts.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════ 3D ══════════════════════ -->
+<div class="section" id="section-3d">
+  <div class="main-wrap">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-tag">🎲 Category</div>
+        <h2 class="section-title">Free 3D Models &amp; <em>Assets</em></h2>
+        <p class="section-desc">3D models, textures, HDRIs, and game assets — all free and open for personal and commercial creative work.</p>
+      </div>
+    </div>
+    <div class="resource-grid">
+
+      <div class="card featured reveal" style="--card-accent:#C8853A;--card-bg:rgba(255,255,255,0.15);">
+        <span class="featured-badge">⭐ Top Pick</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:rgba(255,255,255,0.15);">🎲</div>
+          <div class="card-meta">
+            <div class="card-name">Sketchfab Free</div>
+            <div class="card-tags"><span class="tag cc">CC Licensed</span><span class="tag ">GLTF/FBX</span><span class="tag ">100k+ Free</span></div>
+          </div>
+        </div>
+        <p class="card-desc">The world's largest platform for 3D content. Thousands of free downloadable models — characters, environments, vehicles, and more — under CC licenses.</p>
+        <div class="card-footer">
+          <span class="card-url">sketchfab.com</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://sketchfab.com/features/free-3d-models" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#065F46;--card-bg:#D1FAE5;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#D1FAE5;">🌳</div>
+          <div class="card-meta">
+            <div class="card-name">Poly Haven</div>
+            <div class="card-tags"><span class="tag public-domain">CC0</span><span class="tag ">HDRI</span><span class="tag ">Textures</span></div>
+          </div>
+        </div>
+        <p class="card-desc">100% free, CC0 3D assets — HDRIs, textures, and 3D models for CGI, architecture, and game development. No attribution required. Professional quality.</p>
+        <div class="card-footer">
+          <span class="card-url">polyhaven.com</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://polyhaven.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0D9488;--card-bg:#CCFBF1;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#CCFBF1;">🕹️</div>
+          <div class="card-meta">
+            <div class="card-name">OpenGameArt 3D</div>
+            <div class="card-tags"><span class="tag cc">CC Licensed</span><span class="tag ">Game Dev</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Free game art assets including 3D models, textures, and environments. Licensed under CC, GPL, and other open licenses — perfect for indie game developers.</p>
+        <div class="card-footer">
+          <span class="card-url">opengameart.org</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://opengameart.org" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#7C3AED;--card-bg:#EDE9FE;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#EDE9FE;">🏗️</div>
+          <div class="card-meta">
+            <div class="card-name">Clara.io</div>
+            <div class="card-tags"><span class="tag free">Free Tier</span><span class="tag ">Multi-format</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A cloud-based 3D modelling tool with a large library of free downloadable models in many formats including OBJ, FBX, Three.js, and more.</p>
+        <div class="card-footer">
+          <span class="card-url">clara.io</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://clara.io/library" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#B45309;--card-bg:#FEF3C7;">
+        
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEF3C7;">🏠</div>
+          <div class="card-meta">
+            <div class="card-name">Free3D</div>
+            <div class="card-tags"><span class="tag free">Free</span><span class="tag ">Architecture</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Thousands of free 3D models in multiple formats. Good selection of architectural models, vehicles, and characters — some fully free, some require registration.</p>
+        <div class="card-footer">
+          <span class="card-url">free3d.com</span>
+          <div class="card-rating" aria-label="Rating: 4 stars">★★★★☆</div>
+          <a href="https://free3d.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#DC2626;--card-bg:#FEE2E2;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#FEE2E2;">🎯</div>
+          <div class="card-meta">
+            <div class="card-name">Kenney Assets</div>
+            <div class="card-tags"><span class="tag public-domain">CC0</span><span class="tag ">Game Dev</span><span class="tag ">2D & 3D</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Thousands of completely free game assets — sprites, textures, audio, and 3D models — all public domain. The most generous game asset creator on the internet.</p>
+        <div class="card-footer">
+          <span class="card-url">kenney.nl</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://www.kenney.nl/assets" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#1D4ED8;--card-bg:#DBEAFE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#DBEAFE;">🧊</div>
+          <div class="card-meta">
+            <div class="card-name">Blend Swap</div>
+            <div class="card-tags"><span class="tag cc">CC Licensed</span><span class="tag ">Blender</span></div>
+          </div>
+        </div>
+        <p class="card-desc">A community of Blender artists sharing 3D models and scenes. Thousands of Blender files available under Creative Commons — from characters to environments.</p>
+        <div class="card-footer">
+          <span class="card-url">blendswap.com</span>
+          <div class="card-rating" aria-label="Rating: 4.5 stars">★★★★½</div>
+          <a href="https://www.blendswap.com" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+      <div class="card reveal" style="--card-accent:#0369A1;--card-bg:#E0F2FE;">
+        <span class="featured-badge" style="background:var(--teal);">🆕 New</span>
+        <div class="card-header">
+          <div class="card-logo" style="background:#E0F2FE;">🚀</div>
+          <div class="card-meta">
+            <div class="card-name">NASA 3D Resources</div>
+            <div class="card-tags"><span class="tag public-domain">Public Domain</span><span class="tag ">Space</span></div>
+          </div>
+        </div>
+        <p class="card-desc">Official NASA 3D models of spacecraft, planets, astronauts, and facilities. All public domain — use the International Space Station or the Mars Rover in your project.</p>
+        <div class="card-footer">
+          <span class="card-url">nasa3d.arc.nasa.gov</span>
+          <div class="card-rating" aria-label="Rating: 5 stars">★★★★★</div>
+          <a href="https://nasa3d.arc.nasa.gov" target="_blank" rel="noopener noreferrer" class="card-visit">Visit ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════ PRIVACY POLICY ══════════════════════ -->
+<div class="section" id="section-privacy">
+  <div class="legal-wrap">
+    <h1>Privacy Policy</h1>
+    <div class="legal-date">Last updated: January 2025</div>
+
+    <h2>1. Introduction</h2>
+    <p>Welcome to Hatty's Media ("we", "us", or "our"). We operate the website hattysmedia.netlify.app (the "Site"). This Privacy Policy explains how we collect, use, and protect information when you visit our Site.</p>
+
+    <h2>2. Information We Collect</h2>
+    <p>We may collect the following types of information:</p>
+    <ul>
+      <li><strong>Usage Data:</strong> Automatically collected information including your IP address, browser type, pages visited, time spent on pages, and referring URLs — via analytics tools.</li>
+      <li><strong>Cookies:</strong> Small text files stored on your device to improve your experience and enable advertising. See Section 5 below.</li>
+      <li><strong>No Personal Registration Data:</strong> We do not require you to create an account. We do not collect your name, email address, or payment information.</li>
+    </ul>
+
+    <h2>3. How We Use Your Information</h2>
+    <ul>
+      <li>To operate and improve the Site</li>
+      <li>To understand how visitors use our content</li>
+      <li>To serve relevant advertisements via Google AdSense</li>
+      <li>To comply with legal obligations</li>
+    </ul>
+
+    <h2>4. Third-Party Services</h2>
+    <p>We use third-party services that may collect data independently:</p>
+    <ul>
+      <li><strong>Google AdSense:</strong> We display advertisements powered by Google AdSense. Google may use cookies to serve ads based on your prior visits to this and other websites. You can opt out at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">google.com/settings/ads</a>.</li>
+      <li><strong>Google Analytics:</strong> We may use Google Analytics to analyse traffic. Data is anonymised where possible.</li>
+      <li><strong>Google Fonts:</strong> We load fonts from Google Fonts, which may log your IP address.</li>
+      <li><strong>External Links:</strong> Our Site links to third-party websites. We are not responsible for their privacy practices.</li>
+    </ul>
+
+    <h2>5. Cookies</h2>
+    <p>We use the following types of cookies:</p>
+    <ul>
+      <li><strong>Strictly Necessary:</strong> Required for the Site to function (e.g., cookie consent preference).</li>
+      <li><strong>Analytics:</strong> To understand Site usage. Can be declined via our cookie banner.</li>
+      <li><strong>Advertising:</strong> Google AdSense uses cookies to serve personalised ads. You may opt out via your Google Ad Settings or the NAI opt-out tool.</li>
+    </ul>
+    <p>You can manage cookies via our cookie banner or your browser settings. Disabling cookies may affect site functionality.</p>
+
+    <h2>6. Data Retention</h2>
+    <p>We retain analytics data in aggregate, anonymised form. We do not retain personal user data beyond what is necessary to operate the Site.</p>
+
+    <h2>7. Children's Privacy</h2>
+    <p>Our Site is not directed to children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us.</p>
+
+    <h2>8. Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have rights to access, correct, or delete data we hold about you. Contact us at the address below to exercise these rights.</p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.</p>
+
+    <h2>10. Contact Us</h2>
+    <p>If you have questions about this Privacy Policy, please contact us via our website at <a href="https://hattysmedia.netlify.app">hattysmedia.netlify.app</a>.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════ TERMS OF SERVICE ══════════════════════ -->
+<div class="section" id="section-terms">
+  <div class="legal-wrap">
+    <h1>Terms of Service</h1>
+    <div class="legal-date">Last updated: January 2025</div>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing or using Hatty's Media (the "Site"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the Site.</p>
+
+    <h2>2. Description of Service</h2>
+    <p>Hatty's Media is a free directory website that curates and links to external free, public domain, and Creative Commons licensed media resources. We do not host media files ourselves; we provide links to third-party websites.</p>
+
+    <h2>3. Use of the Site</h2>
+    <p>You agree to use the Site only for lawful purposes and in a way that does not infringe the rights of others. You must not:</p>
+    <ul>
+      <li>Use the Site to distribute spam or malicious content</li>
+      <li>Attempt to hack, scrape excessively, or disrupt the Site</li>
+      <li>Misrepresent the licensing of content found via our links</li>
+      <li>Use the Site in any way that violates applicable laws or regulations</li>
+    </ul>
+
+    <h2>4. External Links Disclaimer</h2>
+    <p>Our Site contains links to external websites. These links are provided for convenience and informational purposes only. We do not endorse, control, or take responsibility for the content, privacy practices, or terms of any external sites. Licensing terms on linked sites may change — always verify licensing directly on the destination site before commercial use.</p>
+
+    <h2>5. Intellectual Property</h2>
+    <p>The design, layout, and original content of Hatty's Media (excluding linked third-party resources) are owned by us. You may not reproduce the Site's design or branding without permission. Media resources accessed via our links are subject to their own respective licenses.</p>
+
+    <h2>6. Advertising</h2>
+    <p>The Site may display advertisements via Google AdSense. These ads are clearly distinguishable from editorial content. We are not responsible for the content of advertisements.</p>
+
+    <h2>7. Disclaimer of Warranties</h2>
+    <p>The Site is provided "as is" without any warranties of any kind. We do not guarantee that linked resources will remain free, available, or correctly licensed at all times. We make no warranties about the accuracy or completeness of our directory.</p>
+
+    <h2>8. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law, Hatty's Media shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Site or reliance on linked resources.</p>
+
+    <h2>9. Changes to Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. Continued use of the Site after changes constitutes acceptance of the revised Terms.</p>
+
+    <h2>10. Governing Law</h2>
+    <p>These Terms shall be governed by applicable law. Any disputes will be resolved in good faith.</p>
+
+    <h2>11. Contact</h2>
+    <p>For questions about these Terms, contact us via <a href="https://hattysmedia.netlify.app">hattysmedia.netlify.app</a>.</p>
+  </div>
+</div>
+
+</main>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer role="contentinfo">
+  <p><strong>Hatty's Media</strong> — Your hub for free, public domain &amp; copyright-free media.</p>
+  <p style="margin-top:6px;font-size:.75rem;">All linked resources are independently operated. Always verify licensing on destination sites before commercial use. We do not host media files.</p>
+  <div class="footer-links">
+    <a href="#" class="footer-link" onclick="showSection('home');return false;">Home</a>
+    <a href="#" class="footer-link" onclick="showSection('books');return false;">Books</a>
+    <a href="#" class="footer-link" onclick="showSection('music');return false;">Music</a>
+    <a href="#" class="footer-link" onclick="showSection('video');return false;">Video</a>
+    <a href="#" class="footer-link" onclick="showSection('images');return false;">Images</a>
+    <a href="#" class="footer-link" onclick="showSection('audio');return false;">Audio</a>
+    <a href="#" class="footer-link" onclick="showSection('fonts');return false;">Fonts</a>
+    <a href="#" class="footer-link" onclick="showSection('3d');return false;">3D</a>
+    <a href="#" class="footer-link" onclick="showSection('privacy');return false;">Privacy Policy</a>
+    <a href="#" class="footer-link" onclick="showSection('terms');return false;">Terms of Service</a>
+  </div>
+  <p style="margin-top:12px;font-size:.72rem;color:rgba(245,240,232,.4);">Part of the <a href="https://hatty-universe.netlify.app/" target="_blank" rel="noopener noreferrer">Hatty's Universe</a> network · Made with ♥ for the free culture community</p>
+</footer>
+
+<!-- ══════════════════════ COOKIE BANNER ══════════════════════ -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+  <div class="cookie-text">
+    🍪 We use cookies to improve your experience and serve relevant ads via <strong>Google AdSense</strong>. By clicking "Accept", you consent to our use of cookies as described in our <a href="#" onclick="showSection('privacy');hideCookieBanner();return false;">Privacy Policy</a>.
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn decline" onclick="handleCookies(false)">Decline</button>
+    <button class="cookie-btn accept" onclick="handleCookies(true)">Accept All</button>
+  </div>
+</div>
+
+<!-- ══════════════════════ TOAST ══════════════════════ -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ══════════════════════ ADSENSE SCRIPT ══════════════════════ -->
+<!-- Google AdSense Auto Ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6374033238930580" crossorigin="anonymous"></script>
+
+<script>
+  // ── SECTION NAVIGATION
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    var section = document.getElementById('section-' + id);
+    if (section) { section.classList.add('active'); }
+    var navLink = document.getElementById('nav-' + id);
+    if (navLink) { navLink.classList.add('active'); }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(triggerReveal, 80);
+  }
+
+  // ── MAIN NAV HAMBURGER
+  function toggleMenu() {
+    var menu = document.getElementById('mobile-menu');
+    var btn = document.getElementById('hamburger');
+    var isOpen = menu.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    // Close top bar dropdown if open
+    document.getElementById('top-bar-dropdown').classList.remove('open');
+    document.getElementById('top-bar-ham').classList.remove('open');
+    document.getElementById('top-bar-ham').setAttribute('aria-expanded', 'false');
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    var btn = document.getElementById('hamburger');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+
+  // ── TOP BAR HAMBURGER
+  function toggleTopBar() {
+    var dd = document.getElementById('top-bar-dropdown');
+    var btn = document.getElementById('top-bar-ham');
+    var isOpen = dd.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    // Close main menu if open
+    closeMobileMenu();
+  }
+
+  // ── SHARE
+  function triggerShare() {
+    if (navigator.share) {
+      navigator.share({ title: "Hatty's Media", text: "Discover the best free, public domain & copyright-free media resources!", url: window.location.href }).catch(function(){});
+    } else { copyLink(); }
+  }
+  function copyLink() {
+    var url = window.location.href;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(function(){ showToast('🔗 Link copied to clipboard!'); });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); showToast('🔗 Link copied!'); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  }
+
+  // ── TOAST
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 3000);
+  }
+
+  // ── SCROLL REVEAL
+  function triggerReveal() {
+    var reveals = document.querySelectorAll('.reveal:not(.visible)');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.06 });
+    reveals.forEach(function(el) { observer.observe(el); });
+  }
+
+  // ── COOKIE CONSENT
+  function handleCookies(accepted) {
+    localStorage.setItem('hatty_cookie_consent', accepted ? 'accepted' : 'declined');
+    hideCookieBanner();
+    if (accepted) {
+    }
+  }
+  function hideCookieBanner() {
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
+
+  // ── INIT
+  document.addEventListener('DOMContentLoaded', function() {
+    triggerReveal();
+
+    // Cookie banner check
+    var consent = null;
+    try { consent = localStorage.getItem('hatty_cookie_consent'); } catch(e) {}
+    if (consent) { hideCookieBanner(); }
+
+    // Close menus on outside click
+    document.addEventListener('click', function(e) {
+      var menu = document.getElementById('mobile-menu');
+      var btn = document.getElementById('hamburger');
+      var tbDropdown = document.getElementById('top-bar-dropdown');
+      var tbBtn = document.getElementById('top-bar-ham');
+      if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+        closeMobileMenu();
+      }
+      if (tbDropdown.classList.contains('open') && !tbDropdown.contains(e.target) && !tbBtn.contains(e.target)) {
+        tbDropdown.classList.remove('open');
+        tbBtn.classList.remove('open');
+        tbBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Scroll reveal
+    window.addEventListener('scroll', triggerReveal, { passive: true });
+  });
+
+  window.addEventListener('load', triggerReveal);
+</script>
+</body>
+</html>
