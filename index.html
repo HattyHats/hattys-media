@@ -294,10 +294,174 @@
       .resource-grid{grid-template-columns:1fr;}
       .quick-links{grid-template-columns:repeat(3,1fr);}
     }
+
+    /* ── SPLASH SCREEN ── */
+    #splash{
+      position:fixed;inset:0;z-index:99999;
+      background:#0a0a0a;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      overflow:hidden;
+      transition:opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #splash.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+
+    /* floating background logo */
+    .splash-bg-logo{
+      position:absolute;
+      width:min(600px, 85vw);
+      height:min(600px, 85vw);
+      object-fit:contain;
+      opacity:0;
+      filter:blur(2px) brightness(0.35);
+      animation: splashBgFade 1.2s ease 0.2s forwards, splashFloat 8s ease-in-out 1.4s infinite;
+      user-select:none;
+      pointer-events:none;
+    }
+    @keyframes splashBgFade{
+      from{opacity:0;transform:scale(0.92);}
+      to{opacity:1;transform:scale(1);}
+    }
+    @keyframes splashFloat{
+      0%,100%{transform:scale(1) translateY(0px) rotate(-1deg);}
+      33%{transform:scale(1.03) translateY(-18px) rotate(1deg);}
+      66%{transform:scale(0.98) translateY(10px) rotate(-0.5deg);}
+    }
+
+    /* text content */
+    .splash-content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      display:flex;flex-direction:column;align-items:center;
+      gap:10px;
+      padding:0 24px;
+    }
+
+    .splash-welcome{
+      font-family:var(--font-display);
+      font-size:clamp(1.4rem,4vw,2.2rem);
+      font-weight:400;
+      font-style:italic;
+      color:rgba(255,255,255,0.75);
+      opacity:0;
+      animation:splashFadeUp 0.9s ease 1.4s forwards;
+      letter-spacing:0.04em;
+    }
+
+    .splash-title{
+      font-family:var(--font-display);
+      font-size:clamp(3rem,10vw,7rem);
+      font-weight:900;
+      line-height:1;
+      letter-spacing:-0.03em;
+      opacity:0;
+      animation:splashFadeUp 0.9s ease 2.1s forwards;
+      display:flex;
+      align-items:baseline;
+      gap:0.18em;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .splash-hattys{
+      color:#3AA49F;
+      display:inline-block;
+      animation:splashFadeUp 0.9s ease 2.1s forwards, glitchHattys 0.15s steps(2) 2.8s 3;
+    }
+    .splash-media{
+      color:#ffffff;
+    }
+
+    .splash-credit{
+      font-family:var(--font-body);
+      font-size:clamp(0.85rem,2vw,1.1rem);
+      font-weight:300;
+      color:rgba(255,255,255,0.5);
+      opacity:0;
+      animation:splashFadeUp 0.9s ease 3s forwards;
+      letter-spacing:0.08em;
+      margin-top:6px;
+    }
+    .splash-credit-name{
+      color:rgba(58,164,159,0.9);
+      font-weight:600;
+      display:inline-block;
+      animation:glitchName 0.12s steps(2) 4.5s 2, glitchName 0.12s steps(2) 8s 2, glitchName 0.12s steps(2) 12s 2;
+    }
+
+    .splash-enter{
+      margin-top:32px;
+      opacity:0;
+      animation:splashFadeUp 0.9s ease 3.8s forwards;
+    }
+    .splash-enter-btn{
+      padding:14px 48px;
+      font-family:var(--font-display);
+      font-size:1.1rem;
+      font-weight:700;
+      font-style:italic;
+      color:#0a0a0a;
+      background:#3AA49F;
+      border:none;
+      border-radius:100px;
+      cursor:pointer;
+      letter-spacing:0.05em;
+      position:relative;
+      box-shadow:0 0 20px rgba(58,164,159,0.5), 0 0 40px rgba(58,164,159,0.25), 0 0 80px rgba(58,164,159,0.1);
+      animation:splashGlow 2.5s ease-in-out 4.5s infinite;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .splash-enter-btn:hover{
+      transform:scale(1.06);
+      box-shadow:0 0 30px rgba(58,164,159,0.8), 0 0 60px rgba(58,164,159,0.4), 0 0 100px rgba(58,164,159,0.2);
+    }
+    .splash-enter-btn:active{transform:scale(0.97);}
+
+    @keyframes splashFadeUp{
+      from{opacity:0;transform:translateY(20px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+    @keyframes splashGlow{
+      0%,100%{box-shadow:0 0 20px rgba(58,164,159,0.5),0 0 40px rgba(58,164,159,0.25),0 0 80px rgba(58,164,159,0.1);}
+      50%{box-shadow:0 0 35px rgba(58,164,159,0.9),0 0 70px rgba(58,164,159,0.5),0 0 120px rgba(58,164,159,0.2);}
+    }
+
+    /* glitch for "Hatty's" */
+    @keyframes glitchHattys{
+      0%{text-shadow:none;transform:translate(0);}
+      20%{text-shadow:-3px 0 #ff00cc, 3px 0 #00ffff;transform:translate(-3px,1px) skewX(-5deg);}
+      40%{text-shadow:3px 0 #ff00cc,-3px 0 #00ffff;transform:translate(3px,-1px) skewX(5deg);}
+      60%{text-shadow:-2px 0 #00ffff,2px 0 #ff00cc;transform:translate(-2px,2px);}
+      80%{text-shadow:2px 0 #3AA49F;transform:translate(1px,-1px);}
+      100%{text-shadow:none;transform:translate(0);}
+    }
+
+    /* glitch for "HattyHats" credit */
+    @keyframes glitchName{
+      0%{text-shadow:none;transform:translate(0);filter:none;}
+      25%{text-shadow:-2px 0 #ff00cc,2px 0 #00ffff;transform:translate(-2px,1px);filter:brightness(1.4);}
+      50%{text-shadow:2px 0 #ff00cc,-2px 0 #00ffff;transform:translate(2px,-1px);filter:brightness(0.8);}
+      75%{text-shadow:-1px 0 #00ffff;transform:translate(-1px,1px);}
+      100%{text-shadow:none;transform:translate(0);filter:none;}
+    }
   </style>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ══ SPLASH SCREEN ══ -->
+<div id="splash" role="dialog" aria-label="Welcome to Hatty's Media" aria-modal="true">
+  <img src="img/hattys-media.png" class="splash-bg-logo" alt="" aria-hidden="true" />
+  <div class="splash-content">
+    <div class="splash-welcome">Welcome To:</div>
+    <div class="splash-title">
+      <span class="splash-hattys">Hatty's</span><span class="splash-media">Media</span>
+    </div>
+    <div class="splash-credit">Created by <span class="splash-credit-name">HattyHats</span></div>
+    <div class="splash-enter">
+      <button class="splash-enter-btn" onclick="enterSite()" aria-label="Enter Hatty's Media">Enter ↗</button>
+    </div>
+  </div>
+</div>
 
 <!-- ══ TOP BAR ══ -->
 <div class="top-bar" role="navigation" aria-label="Hatty's network sites">
@@ -1897,6 +2061,13 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6374033238930580" crossorigin="anonymous"></script>
 
 <script>
+  // ── SPLASH
+  function enterSite() {
+    var splash = document.getElementById('splash');
+    splash.classList.add('hidden');
+    try { sessionStorage.setItem('hatty_entered', '1'); } catch(e) {}
+  }
+
   // ── SECTION NAVIGATION
   function showSection(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -1989,6 +2160,13 @@
 
   // ── INIT
   document.addEventListener('DOMContentLoaded', function() {
+    // Skip splash if already entered this session
+    try {
+      if (sessionStorage.getItem('hatty_entered')) {
+        document.getElementById('splash').classList.add('hidden');
+      }
+    } catch(e) {}
+
     triggerReveal();
 
     // Cookie banner check
